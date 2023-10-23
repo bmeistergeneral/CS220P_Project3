@@ -8,9 +8,7 @@ public class Plane {
 
     static String pStatus[] = {"Departing", "Arriving", "No requests"};
     private String status;
-    public Plane(int priority, int startTime) {
-       this.priority = priority;
-       this.landingTime = startTime;
+    public Plane() {
        status = chooseStatus(pStatus);
     }
 
