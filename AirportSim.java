@@ -7,6 +7,7 @@ public class AirportSim {
         ArrayList<Plane> takeoff = new ArrayList<>();
         ArrayList<Plane> none = new ArrayList<>();
         Random rand = new Random();
+        // Creating plane objects
         Plane plane1 = new Plane();
         System.out.println("This plane takes off at: " + plane1.getTakeoffTime("4:20 AM"));
         System.out.println("The flight number is: " + plane1.getFlightNumber(" " + rand.nextInt(2000)));
@@ -35,7 +36,7 @@ public class AirportSim {
         System.out.println("The elapsed time is: " + plane4.elapsedTime(1850, 2215));
         System.out.println("This plane is: " + plane4.getPlaneStatus());
         System.out.println("The runway is: " + plane4.getStatusOfRunway("Wet"));
-
+        // Plane status detection
         if (plane1.getPlaneStatus() == "Arriving") {
             landing.add(plane1);
         } else if (plane1.getPlaneStatus() == "Departing") {
@@ -64,30 +65,35 @@ public class AirportSim {
         } else if (plane4.getPlaneStatus() == "Idle") {
             none.add(plane4);
         }
+        // if landing queue contains planes, then a plane cannot take off.
         int landingPlanes = landing.size();
         if (landingPlanes != 0) {
             System.out.println("Sorry, can't take off yet! Please wait");
             StatusTest land = new StatusTest(RStatus.LAND);
             land.tellRunwayStatus();
         }
+        // if there are no landing planes and runway is idle, then the plane can take off.
         int noRequests = none.size();
         if (landingPlanes == 0 && noRequests < 4) {
             System.out.println("You can take off!");
             StatusTest takeoff1 = new StatusTest(RStatus.TAKEOFF);
             takeoff1.tellRunwayStatus();
         }
+        // if there are more planes landing at a time than allowed, planes must change course.
         if (landingPlanes >= 4) {
             System.out.println("Please go to a different airport.");
         }
+        // if there are more than the allowed number of planes taking off, plane must wait.
         int takeoffs = takeoff.size();
         if (takeoffs >= 4) {
             System.out.println("Sorry, can't take off! Please wait.");
         }
+        // if all planes have taken off, runway is idle.
         if (takeoffs == 4) {
             StatusTest idle = new StatusTest(RStatus.IDLE);
             idle.tellRunwayStatus();
         }
-
+        // creating a new runway object
         Runway runway = new Runway(4, landingPlanes, takeoffs,4, 4, 4, 4, 0, 0, 10, 10, noRequests);
         System.out.println("The limit is: " + runway.getListLimit());
         System.out.println("The number of takeoffs is: " + runway.getTakeoffs());

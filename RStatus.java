@@ -1,4 +1,5 @@
 public enum RStatus {
+    // Tells status of runway.
         IDLE, LAND, TAKEOFF
     } class StatusTest {
         RStatus status;
