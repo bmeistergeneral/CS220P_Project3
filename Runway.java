@@ -38,6 +38,10 @@ public class Runway {
     public int getLandingRequests() {
         return landingRequests;
     }
+    // # of takeoff requests
+    public int getTakeoffRequests() {
+        return takeoffRequests;
+    }
     // landings
     public int getLandings() {
         return landings;

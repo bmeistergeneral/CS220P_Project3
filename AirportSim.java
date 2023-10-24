@@ -1,41 +1,60 @@
 import java.util.ArrayList;
 import java.util.Random;
 public class AirportSim {
-
+// timesOfDay[(rand.nextInt(timesOfDay.length))]
     public static void main(String[] args) {
         ArrayList<Plane> landing = new ArrayList<>();
         ArrayList<Plane> takeoff = new ArrayList<>();
         ArrayList<Plane> none = new ArrayList<>();
         Random rand = new Random();
+        final String[] timesOfDay = {
+                "AM",
+                "PM"
+        };
         // Creating plane objects
+        // Elapsed time intervals unable to be programmed and documented.
         Plane plane1 = new Plane();
-        System.out.println("This plane takes off at: " + plane1.getTakeoffTime("4:20 AM"));
+        String to = "The takeoff time is: " + plane1.getTakeoffTime((rand.nextInt(4, 6) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "AM"));
+        System.out.println(to);
         System.out.println("The flight number is: " + plane1.getFlightNumber(" " + rand.nextInt(2000)));
-        System.out.println("The arrival time is: " + plane1.getArrivalTime("6:50 AM"));
-        System.out.println("The elapsed time is: " + plane1.elapsedTime(420, 650));
+        String la = "The arrival time is: " + plane1.getArrivalTime( rand.nextInt(8, 10) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "AM");
+        System.out.println(la);
+        System.out.println("The elapsed time is: " + ((la.charAt(la.length() - 7)) + (la.charAt(la.length() - 5)) + (la.charAt(la.length() - 4)) - (to.charAt(to.length() - 7)) + (to.charAt(to.length() - 5)) + (to.charAt(to.length() - 4))));
         System.out.println("This plane is: " + plane1.getPlaneStatus());
-        System.out.println("The runway is: " + plane1.getStatusOfRunway("Dry"));
+        System.out.println("The runway is: " + plane1.getStatusOfRunway("Wet"));
+        System.out.println();
         Plane plane2 = new Plane();
-        System.out.println("This plane takes off at: " + plane2.getTakeoffTime("7:15 AM"));
+        String to1 = "The takeoff time is: " + plane2.getTakeoffTime((rand.nextInt(10, 11) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "AM"));
+        System.out.println(to1);
         System.out.println("The flight number is: " + plane2.getFlightNumber(" " + rand.nextInt(2000)));
-        System.out.println("The arrival time is: " + plane2.getArrivalTime("10:15 AM"));
-        System.out.println("The elapsed time is: " + plane2.elapsedTime(715, 1015));
+        String la1 = "The arrival time is: " + plane2.getArrivalTime( rand.nextInt(2, 4) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "PM");
+        System.out.println(la1);
+        System.out.println("The elapsed time is: " + ((la1.charAt(la1.length() - 7)) + (la1.charAt(la1.length() - 5)) + (la1.charAt(la1.length() - 4)) - (to1.charAt(to1.length() - 7)) + (to1.charAt(to1.length() - 5)) + (to1.charAt(to1.length() - 4))));
         System.out.println("This plane is: " + plane2.getPlaneStatus());
-        System.out.println("The runway is: " + plane2.getStatusOfRunway("Wet"));
+        System.out.println("The runway is: " + plane2.getStatusOfRunway("Dry"));
+        System.out.println();
         Plane plane3 = new Plane();
-        System.out.println("This plane takes off at: " + plane3.getTakeoffTime("11:15 AM"));
+        String to2 = "The takeoff time is: " + plane3.getTakeoffTime((rand.nextInt(4, 6) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "PM"));
+        System.out.println(to2);
         System.out.println("The flight number is: " + plane3.getFlightNumber(" " + rand.nextInt(2000)));
-        System.out.println("The arrival time is: " + plane3.getArrivalTime("6:35 PM"));
-        System.out.println("The elapsed time is: " + plane3.elapsedTime(1115, 1835));
+        String la2 = "The arrival time is: " + plane3.getArrivalTime( rand.nextInt(8, 10) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "PM");
+        System.out.println(la2);
+        System.out.println("The elapsed time is: " + ((la2.charAt(la2.length() - 7)) + (la2.charAt(la2.length() - 5)) + (la2.charAt(la2.length() - 4)) - (to2.charAt(to2.length() - 7)) + (to2.charAt(to2.length() - 5)) + (to2.charAt(to2.length() - 4))));
         System.out.println("This plane is: " + plane3.getPlaneStatus());
         System.out.println("The runway is: " + plane3.getStatusOfRunway("Dry"));
+        System.out.println();
         Plane plane4 = new Plane();
-        System.out.println("This plane takes off at: " + plane4.getTakeoffTime("6:50 PM"));
+        String to3 = "The takeoff time is: " + plane4.getTakeoffTime((rand.nextInt(10, 11) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "PM"));
+        System.out.println(to3);
         System.out.println("The flight number is: " + plane4.getFlightNumber(" " + rand.nextInt(2000)));
-        System.out.println("The arrival time is: " + plane4.getArrivalTime("10:15 PM"));
-        System.out.println("The elapsed time is: " + plane4.elapsedTime(1850, 2215));
+        String la3 = "The arrival time is: " + plane4.getArrivalTime( rand.nextInt(2, 4) + ":" + rand.nextInt(0, 6) + rand.nextInt(0, 10) + " "  + "AM");
+        System.out.println(la3);
+        System.out.println("The elapsed time is: " + ((la3.charAt(la3.length() - 7)) + (la3.charAt(la3.length() - 5)) + (la3.charAt(la3.length() - 4)) - (to3.charAt(to3.length() - 7)) + (to3.charAt(to3.length() - 5)) + (to3.charAt(to3.length() - 4))));
         System.out.println("This plane is: " + plane4.getPlaneStatus());
         System.out.println("The runway is: " + plane4.getStatusOfRunway("Wet"));
+        System.out.println();
+
+
         // Plane status detection
         if (plane1.getPlaneStatus() == "Arriving") {
             landing.add(plane1);
@@ -96,9 +115,9 @@ public class AirportSim {
         // creating a new runway object
         Runway runway = new Runway(4, landingPlanes, takeoffs,4, 4, 4, 4, 0, 0, 10, 10, noRequests);
         System.out.println("The limit is: " + runway.getListLimit());
-        System.out.println("The number of takeoffs is: " + runway.getTakeoffs());
+        System.out.println("The number of takeoffs scheduled is: " + runway.getTakeoffs());
         System.out.println("The wait time for takeoffs is: " + runway.getTakeoffWait());
-        System.out.println("The number of landings is: " + runway.getLandings());
+        System.out.println("The number of landings scheduled is: " + runway.getLandings());
         System.out.println("The wait time for landings is: " + runway.getLandingWait());
         System.out.println("The number of idle planes is: " + runway.getIdle());
         System.out.println("The number of takeoffs accepted: " + runway.getTakeoffsAccepted());
@@ -106,5 +125,6 @@ public class AirportSim {
         System.out.println("The number of takeoffs refused: " + runway.getTakeoffsRefused());
         System.out.println("The number of landings refused: " + runway.getLandingsRefused());
         System.out.println("The number of landing requests: " + runway.getLandingRequests());
+        System.out.println("The number of takeoff requests: " + runway.getTakeoffRequests());
 }
 }
